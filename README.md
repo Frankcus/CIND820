@@ -19,5 +19,9 @@ For this CIND 820 project the stages include:
 
 This repository includes 
   i. .ipynb working file 
+  
   ii. initial dataset
+  
   iii. transformation code from the query
+  
+  iv. technical document of the code and results

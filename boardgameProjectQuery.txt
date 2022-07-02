@@ -1,0 +1,19 @@
+SELECT b.*, case 
+            when c.numExpansion IS NULL THEN 0
+            ELSE c.numExpansion
+            END as 'expansions'
+
+FROM boardgames b
+    LEFT JOIN (
+WITH split(word, str) AS (
+    -- alternatively put your query here
+    -- SELECT '', category||',' FROM categories
+    SELECT '', [attributes.boardgameexpansion]||',' FROM Boardgames where [game.type] like '%expans%'
+    UNION ALL SELECT
+    substr(str, 0, instr(str, ',')),
+    substr(str, instr(str, ',')+1)
+    FROM split WHERE str!=''
+) SELECT word, count( word) as 'numExpansion' FROM split WHERE word!='' group by word) as c ON b.[details.name]=c.word
+
+WHERE b.[game.type]='boardgame'
+;

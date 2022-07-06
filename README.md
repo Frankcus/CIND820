@@ -25,3 +25,5 @@ This repository includes
   iii. transformation code from the query
   
   iv. technical document of the code and results
+  
+  The original data file can be found at: https://www.kaggle.com/datasets/gabrio/board-games-dataset). 
